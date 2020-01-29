@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Selecteurs Javascript</title>
+
+    <script>
+        window.onload = function () {
+
+            // SELECTION NATURELLE D'UN ID
+            var monId = titre;
+            console.log(monId);
+
+            // SELECTION BY ID
+            var monId2 = document.getElementById('titre');
+            console.log(monId2);
+
+            // SELECTION BY CLASSNAME
+            var mesClasses = document.getElementsByClassName('avion');
+            // je récupère un ensemble : une collection html
+            console.log(mesClasses);
+            // je peux atteindre un des éléments de la collection grace à l'indice [1]
+            console.log(mesClasses[1]);
+            // innerHTML definit l contenu de la balise
+            console.log(mesClasses[1].innerHTML);
+            mesClasses[1].innerHTML = 'Nouveau contenu';
+
+            //modifier le contenu du h2 pour marquer "nouveau titre"
+
+            var maVar3 = document.getElementById('titre');
+            console.log(maVar3)
+
+
+            // SELECTION BY TAGNAME
+
+            var mesP = document.getElementsByTagName('p');
+            console.log(mesP);
+            for (var i = 0; i < mesP.length; i++) {
+                console.log(mesP[i].innerHTML);
+                mesP[i].style.color = 'red';
+            }
+            // console.log(mesP[1].innerHTML);
+
+            // liste des mots clés à appliquer avec .style
+            // https://www.w3schools.com/jsref/dom_obj_style.asp
+
+            // querySelector
+
+            var query = document.querySelector('#titre')
+            console.log(query)
+
+            var query2 = document.querySelectorAll('.avion');
+            console.log(query2[2]);
+
+            // selectionnez airbus3 : modifier son contenu en "mon airbus"
+            // de plus stylisez cet airbus 3 pour y appliquer un fond bleu, un texte blanc et en gras
+
+            var airbus3 = document.getElementsByTagName('div')
+            console.log(airbus3[2]) ;
+            airbus3[2].innerHTML = "mon airbus";
+            airbus3[2].style.color = 'white';
+            airbus3[2].style.backgroundColor = 'blue';
+            airbus3[2].style.fontWeight = 'bold';
+            
+        } // fin de mon window.onload  NE PAS EFFACER
+
+    </script>
+
+</head>
+
+
+<body>
+
+
+    <div id="conteneur">
+        <h2 id="titre">Mon titre de niveau 2</h2>
+    
+        <div class="avion">AirBus 1</div>
+        <div class="avion">AirBus 2</div>
+        <div class="avion">AirBus 3</div>
+    
+        <p id="first">Paragraphe 1</p>
+        <p>Paragraphe 2</p>
+        <p title="infoBulle">Paragraphe 3</p>
+        <p>Paragraphe 4</p>
+        <p>Paragraphe 5</p>
+    </div>
+
+
+
+</body>
+</html>
