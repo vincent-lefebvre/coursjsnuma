@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Evenements Javascript</title>
+    <style>
+        body{width: 50%;}
+        #div1{background: purple; color: #fff; padding: 10px;}
+        #div2{background: cyan; color: #000; padding: 10px;}
+        #div3{background: darkorange; color: black; padding: 10px;}
+        #div4{background: pink; color: black; padding: 10px;}
+        #div5{background: blue; color: #fff; padding: 10px;}
+        #prenom{width: 50px;}
+        .clicBouton{background: red; color: white; width: 70px;}
+    </style>
+</head>
+<body>
+    <h2 onclick="fDiv1();">Click</h2>
+    <div id="div1">DIV1</div>
+    <p id="parag">Paragraphe à cliquer</p>
+    <h2>DblClick</h2>
+    <div id="div2">DIV2</div>
+    <h2>Survol (mouseover)</h2>
+    <div id="div3">DIV3</div>
+    <h2>Fin de survol (mouseout)</h2>
+    <div id="div4">DIV4</div>
+    <h2>innerHTML</h2>
+    <div id="div5">Le texte va changer si tu clic ici !</div>
+    <h2>Focus</h2>
+    <form >
+        <label for="prenom">Veuillez saisir votre prénom</label>
+        <input id="prenom" type="text" name="prenom">
+        <input type="submit" name="submit" id="submit" value="OK">
+    </form>
+
+    <script>
+        // le addEventListener a besoin de deux arguments : 1 - le mot clé correspondant a l'evenement (ici le click) 2 - la FONCTION executée lors de l'evenement (ici la fonction fDiv1)
+        document.querySelector('#div1').addEventListener('click',fDiv1);
+
+        function fDiv1(){
+            alert('Div1 est cliquée !'); 
+        }
+
+        // sur ce paragraphe, plutot qu'appeler une fonction existante nous executons une fonction anonyme au moment du clic
+        document.querySelector('#parag').addEventListener('click', function () { alert('par fonction anonyme') });
+
+
+        document.getElementById('div2').addEventListener('dblclick', fDiv2);
+
+        function fDiv2(){
+            alert('Div2 est double cliquée !');
+        };
+
+        document.querySelector('#div3').addEventListener('mouseover',fDiv3);
+
+        function fDiv3(){
+            alert('Div survolée');
+        }
+
+        document.querySelector('#div4').addEventListener('mouseout', fDiv4);
+
+        function fDiv4() {
+            alert('Fin du survol');
+        }
+
+        //this est un mot clé (signifiant 'l'element lui meme') qui permet de faire reference à l'element précedemment selectionné, l'element concerné par la fonction
+
+        document.querySelector('#div5').addEventListener('click', fDiv5);
+
+        function fDiv5() {
+            this.innerHTML = "Voilà ! Le texte a changé, et il est plus grand, et gras";
+            this.style.fontSize = "50px";
+            this.style.fontWeight = "bold";
+        }
+
+        document.querySelector('#prenom').addEventListener('focus',inputFocus);
+
+        function inputFocus(){
+            // alert('Champ focus');
+            this.style.width = "250px";
+        }
+
+        document.querySelector('#prenom').addEventListener('blur', inputBlur);
+
+        function inputBlur() {
+            // alert('Champ blur');
+            this.style.width = "50px";
+
+        }
+
+        document.querySelector('#submit').addEventListener('click', inputSubmit);
+        function inputSubmit(event){
+            event.preventDefault();
+            // alert('Formulaire validé');
+            this.classList.add('clicBouton')
+            console.log(document.querySelector('#prenom').value);
+        }
+        
+
+
+    </script>
+</body>
+</html>
