@@ -2,54 +2,58 @@
     box-sizing: border-box;
 }
 
-
 body{
     background-color: lightgray;
 }
 
 .conteneur{
-    width: 960px;
-    /* border: 2px solid red; */
+    width: 1000px;
+    border: 1px solid white;
     margin: 0 auto;
-
+    background: lightskyblue;
 }
 
 .row{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* border: 1px solid green; */
+    border: 1px solid orange;
 }
 
 .row-reverse{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* border: 1px solid green; */
-
+    border: 1px solid green;
 }
 
+header{
+    text-align: center;
+}
+
+footer{
+    padding: 10px;
+}
 
 /********** trois colonnes égales cotes à cotes **************/
 
 .col-1{width: 8.333333%;}
 .col-2{width: 16.666666%;}
 .col-3{width: 25%;}
-
 .col-4{width: 33.333333%;}
+
 .col-5{width: 41.666666%;}
 .col-6{width: 50%;}
-
 .col-7{width: 58.333333%;}
 .col-8{width: 66.666666%;}
-.col-9{width: 75%;}
 
+.col-9{width: 75%;}
 .col-10{width: 83.333333%;}
 .col-11{width: 91.666666%;}
 .col-12{width: 100%;}
 
 
-/***************** les marges ************************/
+/***************** les marges GAUCHE ************************/
 
 .marge-1{margin-left: 8.333333%;}
 .marge-2{margin-left: 16.666666%;}
@@ -76,7 +80,7 @@ body{
 .marron{background: saddlebrown; min-height: 60px;}
 .noir{background: black; min-height: 60px;}
 
-.black{background: #581845;}
+/* .black{background: #581845;}
 .brown{background: #900C3F;}
 .light_brown{background: #C70039;}
 .skin{background: #F4E5B2;}
@@ -92,6 +96,86 @@ body{
 .dark_blue{background: #0086FF;}
 .blue{background: #60B3FF;}
 .light_blue{background: #0FD2FF;}
-.lighter_blue{background: #DFF0FF;}
+.lighter_blue{background: #DFF0FF;} */
 /* http://angelmarkos.free.fr/partage/hetic/mario.jpg */
 
+
+
+/* media queries, pour les écrans */
+
+/* téléphones, mobile ex.iphone5 */
+
+@media (max-width: 320px){
+    body{
+        background-color: lightgray;
+    }
+
+    .conteneur{
+        width: 100%;
+        background: #fff;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+    }
+
+        h1{
+        font-size: 120%;
+        text-align: left;
+        padding-left: 5px;
+        color: white;
+    }
+
+    header p {
+        color: white;
+        text-align: left;
+        padding-left: 5px;
+        
+    }
+
+}
+
+
+/* petites tablettes */
+
+@media (min-width: 321px) and (max-width: 767px) {
+    body{
+        background: #B18B45;
+    }
+    .conteneur{
+        width: 100%;
+        background: #fff;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+    }
+}
+
+/* tablettes et ordinateurs portables, desktop */
+
+@media (min-width: 768px) and (max-width: 1096px) {
+        body{
+        background: royalblue;
+    }
+    .conteneur{
+        width: 100%;
+        background: #fff;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+    }
+}
+
+/* écran ordinateurs de bureau */
+
+@media (min-width: 1097px){
+    body{
+        background: red;
+    }
+    .conteneur{
+        width: 100%;
+        background: #fff;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+    }
+}
