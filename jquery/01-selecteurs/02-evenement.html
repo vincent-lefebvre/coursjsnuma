@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02_evenement</title>
+    <style>
+        .maClasse {
+            background-color: brown;
+            color: burlywood;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Evenement</h1>
+    <main>
+        <article>
+            <p>Mon paragraphe</p>
+        </article>
+    </main>
+    <button id="bouton1">bouton 1</button>
+    <button id="bouton2">bouton 2</button>
+    <button id="bouton3">bouton 3</button>
+
+    <script src="../../cours-numa/jquerry/source/jquery-3.4.1.js"></script>
+    <script>
+        //$(document).ready(function(){
+        // pour condenser en plus court le code audessus
+        $(function () {
+            //alert('charge');
+            $('h1').append(' javascript');
+            $('#bouton1').click(function () {
+                //alert('cliqué')//
+                // faire qu'au clic le texte h1 se souligne
+                $('h1').css('text-decoration', 'underline');
+            });
+            //un double clic  sur le bouton 2 engendre un changement de coulmeur du body
+            $('#bouton2').dblclick(function () {
+                $('body').css('background', 'pink', 'font-family', 'sans-serif');
+                //le mot clef this se refere a la selection active "$('#bouton2')"
+                $(this).css("display", "none");
+            });
+            //mouseenter
+            $('#bouton3').mouseenter(function () {
+                $('main').addClass('maClasse');
+            });
+            //mouseout
+        });
+
+    </script>
+</body>
+
+</html>
