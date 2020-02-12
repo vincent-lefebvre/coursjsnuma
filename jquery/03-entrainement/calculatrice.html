@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calculatrice</title>
+</head>
+<body>
+    <p style="text-align: center;">
+        <span id="afficher">Afficher</span>
+        <span>/</span>
+        <span id="cacher">Cacher</span>
+        <span>/</span>
+        <span id="toggle">Toggle</span>
+    </p>
+    <div id="conteneur" style="background: dodgerblue; height: 200px; width: 80%; margin: 0 auto; text-align: center; padding-top: 80px;">
+        <form action="#" method="get" name="formulaire">
+            <input type="number" name="saisie1" id="saisie1">
+            <select name="operateur" id="operateur">
+                <option>+</option>
+                <option>-</option>
+                <option>/</option>
+                <option>*</option>
+            </select>
+            <input type="number" name="saisie2" id="saisie2">
+            <input type="submit" name="bouton" id="bouton" value="Calculez">
+        </form>
+    </div>
+
+    <script src="../page/js/jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            
+            function calcul(event){
+                
+                event.preventDefault();
+                console.log('ca marche');
+
+                var saisie1 = $('#saisie1').val();
+                console.log(saisie1);
+
+                var saisie2 = $('#saisie2').val();
+                console.log(saisie2);
+
+                var operateur = $('#operateur').val();
+                console.log(operateur);
+
+                if(operateur == '+') {
+                    resultat = parseInt(saisie1) + parseInt(saisie2);
+                    console.log(resultat);
+                };
+
+                if (operateur == '-') {
+                    resultat = (saisie1 - saisie2)
+                        console.log(resultat);
+                };
+                if (operateur == '/') {
+                    resultat = (saisie1 / saisie2)
+                    console.log(resultat);
+                };
+                if (operateur == '*') {
+                    resultat = (saisie1 * saisie2)
+                    console.log(resultat);
+                };
+
+
+            };
+
+
+            $('#bouton').click(calcul);
+
+            $('#afficher').click(function(){
+                $('#conteneur').slideDown();
+            });
+
+            $('#cacher').click(function () {
+                $('#conteneur').slideUp();
+            });
+
+            $('#toggle').click(function () {
+                $('#toggle').slideToggle();
+            });
+
+        });
+    
+    </script>
+    
+</body>
+</html>
