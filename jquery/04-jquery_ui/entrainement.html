@@ -7,7 +7,23 @@
     <!-- Le CSS de jquery ui -->
     <link rel="stylesheet" href="jquery-ui.css">
     <style>
-        .nouvelleClasse{ font-size: 130px; color: red};
+        .nouvelleClasse{ font-size: 130px; color: red;}
+        .animation{ 
+            width: 500px;
+            height: 80px;
+            background: grey;
+            color: white;
+            line-height: 80px;  
+            text-align: center;  
+        }
+        .effets{
+            height: 200px;
+            width: 200px;
+            background-color: tomato;
+        }
+        .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
+            background: greenyellow;
+        }
     </style>
 </head>
 <body>
@@ -62,6 +78,63 @@
 
     <h4 id="ajoutClasse">Ajout de classe Jquery-ui</h4>
 
+    <div class="animation">Voici le contenu de ma div animée</div>
+
+    <div class="effets"></div>
+    <button id="bout_effet">Click pour l'effet</button>
+
+    <br><hr><br>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Nunc tincidunt</a></li>
+            <li><a href="#tabs-2">Proin dolor</a></li>
+            <li><a href="#tabs-3">Aenean lacinia</a></li>
+        </ul>
+        <div id="tabs-1">
+            <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi
+                sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus
+                auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci.
+                Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius
+                sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+        </div>
+        <div id="tabs-2">
+            <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc.
+                Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut
+                tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam.
+                Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc.
+                Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat,
+                tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris
+                consectetur tortor et purus.</p>
+        </div>
+        <div id="tabs-3">
+            <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula
+                accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti
+                sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel
+                enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium
+                nec, feugiat nec, luctus a, lacus.</p>
+            <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla
+                facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec
+                mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam
+                scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor,
+                tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo.
+                Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+        </div>
+    </div>
+
+    <hr>
+    <div style="border: 1px solid red; height: 900px;">
+        <img src="images/cheval_01.jpg" alt="cheval" id="image1">
+        <img src="images/cheval_02.jpg" alt="cheval" id="image2">
+        <img src="images/cheval_03.jpg" alt="cheval" id="image3">
+        <img src="images/cheval_04.jpg" alt="cheval" id="image4">
+        <img src="images/cheval_05.jpg" alt="cheval" id="image5">
+        <img src="images/cheval_06.jpg" alt="cheval" id="image6">
+        <img src="images/cheval_07.jpg" alt="cheval" id="image7">
+        <img src="images/cheval_08.jpg" alt="cheval" id="image8">
+        <img src="images/cheval_09.jpg" alt="cheval" id="image9">
+    </div>
+
     <!-- script de jquery -->
     <script src="../page/js/jquery-3.4.1.js"></script>
     <!-- script de jquery ui -->
@@ -73,6 +146,58 @@
                 $('#ajoutClasse').click(function(){
                     $(this).toggleClass("nouvelleClasse", 2000);
                 });
+
+                $('.animation').click(function(){
+
+                    var hauteur = '500px'
+                    $(this).animate({
+                        width: '400px',
+                        height: hauteur,
+                        backgroundColor: 'blue',
+                        color: 'black',
+                        lineHeight: hauteur
+                    },2000);
+                });
+
+                // placer un toggle pour un clic sur le boutton entraine apparition et disparition du carré, cette disparition doit avoir lieu avec un effet "bounce"
+
+                $('#bout_effet').click(function () {
+                    // effet() permet de placer un effet au moment d'un évènement
+                    $('.effets').effect("bounce", 2000);
+                    // toggle() peut se voir préciser un effet qu'il appliquera lors des apparitions/disparitions
+                    $('.effets').toggle("explode", 2000);
+
+                });
+
+                // mise en place de tabs
+
+                // mettre en place tabs non pas au clic mais au survol de la souris 
+                $("#tabs").tabs({
+                event: "mouseover"
+                });
+
+                // rendre les images draggable
+                $('#image1').draggable({ snap: "#image2, #image4", snapmode: 'outer'});
+                $('#image2').draggable({ snap: "#image1, #image3, #image5", snapmode: 'outer' });
+                $('#image3').draggable({ snap: "#image2, #image6", snapmode: 'outer' });
+                $('#image4').draggable({ snap: "#image1, #image5", snapmode: 'outer' });
+                $('#image5').draggable({ snap: "#image2, #image4, #image6, #image8", snapmode: 'outer' });
+                $('#image6').draggable({ snap: "#image3, #image5, #image9", snapmode: 'outer' });
+                $('#image7').draggable({ snap: "#image4, #image8", snapmode: 'outer' });
+                $('#image8').draggable({ snap: "#image5, #image7, #image9", snapmode: 'outer' });
+                $('#image9').draggable({ snap: "#image6, #image8", snapmode: 'outer' });
+
+
+                // changer le curseur : mousedown = bouton de souris cliqué ; mouseup = bouton de souris relaché
+                $('img').mousedown(function(){
+                    $(this).css('cursor','grabbing');
+                });
+                $('img').mouseup(function () {
+                    $(this).css('cursor', 'grab');
+                });
+
+
+
             });
     </script>
 

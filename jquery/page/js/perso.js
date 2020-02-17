@@ -1,8 +1,8 @@
-$(function(){
-    $('aside a').click(function(event){
+$(function () {
+    $('aside a').click(function (event) {
         // alert('clic');
 
-        // j'annule le clic sur le llien
+        // j'annule le clic sur le lien
         event.preventDefault();
         // console.log($(this).attr('href'));
 
@@ -10,15 +10,12 @@ $(function(){
 
         $('figure img').attr("src", monHref);
 
-        //
+
+        // Recuperer dans une variable le alt des images vignettes puis changer le contenu de figcaption avec cette variable.
+
 
         var monAlt = $(this).attr('title');
-
-        $('figcaption')
-
+        // console.log(monAlt);
+        $('figcaption h3').html(monAlt);
     });
-
-
-
-    
 });
