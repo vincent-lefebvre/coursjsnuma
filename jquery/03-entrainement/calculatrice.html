@@ -2,6 +2,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Calculatrice</title>
+    <style>
+
+    </style>
+    <script>
+
+        function saisie1_on() {
+            console.log('test');
+            var message_saisie1 = 'Veuillez saisir un chiffre';
+            $('#conteneur p').text(message_saisie1);
+        }
+        function saisie1_off() {
+            $('#conteneur p').text("");
+        }
+
+
+
+    </script>
 </head>
 <body>
     <p style="text-align: center;">
@@ -13,15 +30,18 @@
     </p>
     <div id="conteneur" style="background: dodgerblue; height: 200px; width: 80%; margin: 0 auto; text-align: center; padding-top: 80px;">
         <form action="#" method="get" name="formulaire">
-            <input type="number" name="saisie1" id="saisie1">
+            <input onmouseover="saisie1_on();" onmouseout="saisie1_off();" type="number" name="saisie1" id="saisie1">
             <select name="operateur" id="operateur">
                 <option>+</option>
                 <option>-</option>
                 <option>/</option>
                 <option>*</option>
             </select>
-            <input type="number" name="saisie2" id="saisie2">
+            <input onmouseover="saisie1_on();" onmouseout="saisie1_off();" type="number" name="saisie2" id="saisie2">
             <input type="submit" name="bouton" id="bouton" value="Calculez">
+            <p style="background: goldenrod; width: 60%; margin: 0 auto;">
+
+            </p>
         </form>
     </div>
 
@@ -43,24 +63,32 @@
                 var operateur = $('#operateur').val();
                 console.log(operateur);
 
+                var submit = $('#bouton').val();
+                console.log(submit);
+
+
+
                 if(operateur == '+') {
                     resultat = parseInt(saisie1) + parseInt(saisie2);
                     console.log(resultat);
-                };
+                }
 
                 if (operateur == '-') {
                     resultat = (saisie1 - saisie2)
                         console.log(resultat);
-                };
+                }
+
                 if (operateur == '/') {
                     resultat = (saisie1 / saisie2)
                     console.log(resultat);
-                };
+                }
+
                 if (operateur == '*') {
                     resultat = (saisie1 * saisie2)
                     console.log(resultat);
-                };
+                }
 
+                alert(saisie1 + operateur + saisie2 + "=" + resultat)
 
             };
 
@@ -68,7 +96,7 @@
             $('#bouton').click(calcul);
 
             $('#afficher').click(function(){
-                $('#conteneur').slideDown();
+                $('#conteneur').slideDown(3000, function(){alert('fini!')});
             });
 
             $('#cacher').click(function () {
@@ -76,9 +104,21 @@
             });
 
             $('#toggle').click(function () {
-                $('#toggle').slideToggle();
+                $('#conteneur').slideToggle();
             });
 
+            //exercice 3
+
+            var message_operateur = 'Veuillez saisir un operateur';
+
+            $('#operateur').hover(
+                function(){
+                    $('#conteneur p').html(message_operateur);
+                },
+                function(){
+                    $('#conteneur p').html('');
+                }
+            );
         });
     
     </script>
